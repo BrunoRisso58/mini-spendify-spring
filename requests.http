@@ -1,0 +1,47 @@
+### List all expenses
+GET http://localhost:8080/api/expenses
+
+### Filter by month and category
+GET http://localhost:8080/api/expenses?month=2026-10&category=FOOD
+
+### Monthly summary
+GET http://localhost:8080/api/expenses/summary?month=2026-10
+
+### Get by id
+GET http://localhost:8080/api/expenses/1
+
+### Create
+POST http://localhost:8080/api/expenses
+Content-Type: application/json
+
+{
+  "description": "Gym membership",
+  "amount": 99.90,
+  "date": "2026-10-15",
+  "category": "HEALTH"
+}
+
+### Create with invalid data (422)
+POST http://localhost:8080/api/expenses
+Content-Type: application/json
+
+{
+  "description": "",
+  "amount": -5,
+  "date": "2030-01-01",
+  "category": "HEALTH"
+}
+
+### Update
+PUT http://localhost:8080/api/expenses/1
+Content-Type: application/json
+
+{
+  "description": "Monthly groceries (updated)",
+  "amount": 470.00,
+  "date": "2026-10-05",
+  "category": "FOOD"
+}
+
+### Delete
+DELETE http://localhost:8080/api/expenses/1
